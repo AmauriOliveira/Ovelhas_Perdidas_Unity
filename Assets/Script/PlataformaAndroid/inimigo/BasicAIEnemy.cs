@@ -44,7 +44,9 @@ public class BasicAIEnemy : MonoBehaviour
                 else if (EstaEspelhado)///andar pra direita
                 {
                     transform.Translate(new Vector2(enemyVelocidade * Time.deltaTime, 0));
+
                 }
+
             }
         }
         else
@@ -56,6 +58,7 @@ public class BasicAIEnemy : MonoBehaviour
                 Destroy(gameObject.GetComponent<Rigidbody2D>());
                 Destroy(gameObject.GetComponent<Collider2D>());
                 _myGameController.fasePontos += inimigoBasicoVida.pontos;
+                _myGameController.PlaySfx(_myGameController.SxfSlimeDie, 1);
                 Destroy(gameObject, 1);
             }
         }

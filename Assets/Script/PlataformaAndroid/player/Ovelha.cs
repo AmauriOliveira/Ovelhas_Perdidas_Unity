@@ -76,4 +76,12 @@ public class Ovelha : MonoBehaviour
         }
         StartCoroutine("Animacao");
     }
+              private void OnBecameVisible()
+        {
+            enabled = true;
+            Debug.Log("ta na tela");
+        }
+private void OnBecameInvisible() {
+    
+}
 }

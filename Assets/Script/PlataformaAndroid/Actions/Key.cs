@@ -18,6 +18,7 @@ public class Key : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            _myGameController.PlaySfx(_myGameController.SxfKey, 1);
             _myGameController.temChave = true;
             particulasEfeitos.Play(true);
             _myGameController.fasePontos += pontos;

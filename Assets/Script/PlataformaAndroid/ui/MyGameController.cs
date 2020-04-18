@@ -70,7 +70,9 @@ public class MyGameController : MonoBehaviour
     [Space]
     [Header("Sfx Game")]
     public AudioClip SfxFalha;
+    public AudioClip SfxMenu;
     public AudioClip SxfVitoria;
+    public AudioClip SfxNewRecord;
     [Space]
     [Header("Sfx Player")]
     public AudioClip SxfJump;
@@ -82,22 +84,18 @@ public class MyGameController : MonoBehaviour
     public AudioClip SxfDash;
     [Space]
     [Header("Sfx Coletaveis")]
-    public AudioClip SxfCoin;
+    public AudioClip[] SxfCoin;
     public AudioClip SxfKey;
     public AudioClip SxfHeal;
+    public AudioClip SfxExplosion;
+    public AudioClip SfxSize;
+    public AudioClip SfxImunite;
     [Space]
-    [Header("Sfx BAt")]
-    public AudioClip SxfBatHit;
+    [Header("Sfx Enemy")]
     public AudioClip SxfBatDie;
-    public AudioClip SxfBatMove;
-    [Header("Sfx Slime")]
-    public AudioClip SxfSlimeHit;
+    public AudioClip SxfEnemyHit;////////////IMPLEMENTAR
     public AudioClip SxfSlimeDie;
-    public AudioClip SxfSlimeMove;
     [Header("Sfx Ovelha")]
-    public AudioClip SxfOvelhaHit;
-    public AudioClip SxfOvelhaDie;
-    public AudioClip SxfOvelhaMove;
     public AudioClip SxfOvelhaSad;
     public AudioClip SxfOvelhaHappy;
     [Header("Sfx Traps")]
@@ -109,6 +107,7 @@ public class MyGameController : MonoBehaviour
 
     private void Awake()
     {
+        // PlayerPrefs.DeleteAll();///temporario
         if (!PlayerPrefs.HasKey("fase" + numeroFase))
         {
             PlayerPrefs.SetInt("fase" + numeroFase, 1);
@@ -182,23 +181,29 @@ public class MyGameController : MonoBehaviour
 
     public void MostrarPontos(bool venceu, string msg)
     {
-
-        UICanvas.gameObject.SetActive(false);
-        if (venceu)
+        if (UICanvas.enabled)
         {
-            vitoriaCanvas.gameObject.SetActive(true);
-            StartCoroutine("PontuacaoEfeito");
+            UICanvas.gameObject.SetActive(false);
 
-            btnProximaV.interactable = false;
-            btnReseteV.interactable = false;
-            btnMenuV.interactable = false;
+            if (venceu)
+            {
+                vitoriaCanvas.gameObject.SetActive(true);
+                StartCoroutine("PontuacaoEfeito");
 
-        }
-        else
-        {
-            TxtFalha.text = msg;
-            falhaCanvas.gameObject.SetActive(true);
-            Time.timeScale = 0f;
+                btnProximaV.interactable = false;
+                btnReseteV.interactable = false;
+                btnMenuV.interactable = false;
+
+                PlaySfx(SxfVitoria, 0.8f);
+            }
+            else
+            {
+                TxtFalha.text = msg;
+                falhaCanvas.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+
+                PlaySfx(SfxFalha, 0.4f);
+            }
         }
     }
     public void SalveFase()
@@ -211,6 +216,7 @@ public class MyGameController : MonoBehaviour
         {
             PlayerPrefs.SetInt("faseRecord" + numeroFase, fasePontos);
             TxtRecord.text = fasePontos.ToString();
+            PlaySfx(SfxNewRecord, 1);
         }
     }
     public void LoadFase()

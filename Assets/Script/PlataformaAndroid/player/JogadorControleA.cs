@@ -146,7 +146,7 @@ public class JogadorControleA : MonoBehaviour
                 StartCoroutine("CronometroPular");
                 pulou1 = true;
                 pulou2 = false;
-
+                _myGameController.PlaySfx(_myGameController.SxfJump, 0.5f);
                 AnimationJump();
                 playerRB2D.AddForce(direcaoDoPulo * forcaDoPulo * 1.5f, ForceMode2D.Impulse);
             }
@@ -157,9 +157,8 @@ public class JogadorControleA : MonoBehaviour
                 pulou1 = true;
                 pulou2 = true;
                 playerRB2D.AddForce(direcaoDoPulo * forcaDoPulo * 2, ForceMode2D.Impulse);
-
+                _myGameController.PlaySfx(_myGameController.SxfJump, 0.5f);
                 AnimationJump();
-
             }
             if (estaNoChao)
             {
@@ -176,6 +175,8 @@ public class JogadorControleA : MonoBehaviour
                 Destroy(gameObject.GetComponent<Rigidbody2D>());
                 Destroy(gameObject.GetComponent<Collider2D>());
                 _myGameController.MostrarPontos(false, "Tente Novamente.");
+                _myGameController.StartCoroutine("FeedBack", "Morreu...");
+                _myGameController.PlaySfx(_myGameController.SxfDie, 0.5f);              
             }
         }
     }
@@ -194,6 +195,8 @@ public class JogadorControleA : MonoBehaviour
         {
             NewArrow.GetComponent<Rigidbody2D>().AddForce(NewArrow.transform.right + new Vector3(1, 0.4f + varaicaoTiro, 0) * tiroForca);
         }
+        _myGameController.PlaySfxArray(_myGameController.SxfFlechaDisparo, 0.3f);
+         _myGameController.PlaySfxArray(_myGameController.SxfArco, 0.2f);
     }
     void Virar()
     {
@@ -225,7 +228,7 @@ public class JogadorControleA : MonoBehaviour
         playerRB2D.velocity += dir.normalized * dashSpeed;
 
         AnimationDash(y);
-
+        _myGameController.PlaySfx(_myGameController.SxfDash, 0.5f);
         StartCoroutine("CronometroDash");
     }
     #endregion

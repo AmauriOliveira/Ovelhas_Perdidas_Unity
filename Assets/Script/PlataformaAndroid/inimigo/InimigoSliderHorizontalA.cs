@@ -58,6 +58,7 @@ public class InimigoSliderHorizontalA : MonoBehaviour
         {
             if (!contador)
             {
+                _myGameController.PlaySfx(_myGameController.SxfBatDie, 1);
                 contador = true;
                 enemyAnimator.SetBool("die", true);
                 Destroy(gameObject.GetComponent<SliderJoint2D>());
