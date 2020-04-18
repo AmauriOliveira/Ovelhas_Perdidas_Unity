@@ -12,7 +12,6 @@ public class Gaiola : MonoBehaviour
     {
         particulasEfeitos.Stop(true);
         _myGameController = FindObjectOfType(typeof(MyGameController)) as MyGameController;
-        Debug.Log("Gaiola.cs incompleta");
 
     }
     void OnCollisionEnter2D(Collision2D other)
@@ -28,7 +27,7 @@ public class Gaiola : MonoBehaviour
             }
             else
             {
-                Debug.Log("Implementar");
+                _myGameController.StartCoroutine("FeedBack", "Precisa encontrar a chave.");
             }
         }
     }

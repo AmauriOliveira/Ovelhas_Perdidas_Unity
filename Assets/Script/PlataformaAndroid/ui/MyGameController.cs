@@ -41,6 +41,10 @@ public class MyGameController : MonoBehaviour
     [Header("Falha")]
     public Text TxtFalha;
     public Canvas falhaCanvas;
+    [Space]
+    [Header("Mensaguem")]
+    public Text TxtFeedback;
+    public Canvas CanvasFeedback;
 
     [Space]
     [Header("Limites")]
@@ -235,6 +239,14 @@ public class MyGameController : MonoBehaviour
     #endregion
     //////////////////
     #region Corotines
+    public IEnumerator FeedBack(string msg)
+    {
+        CanvasFeedback.gameObject.SetActive(true);
+        TxtFeedback.text = msg;
+        yield return new WaitForSeconds(2);
+        CanvasFeedback.gameObject.SetActive(false);
+        TxtFeedback.text = "";
+    }
     public IEnumerator OvelhaLivre()
     {
         ovelhaLivre = true;
@@ -258,7 +270,6 @@ public class MyGameController : MonoBehaviour
 
         for (int i = tempoFase; i > 0; i--)
         {
-            Debug.Log(i);
             yield return new WaitForSeconds(0.02f);
             fasePontos += (5 * acceleration);
             tempoFase--;
