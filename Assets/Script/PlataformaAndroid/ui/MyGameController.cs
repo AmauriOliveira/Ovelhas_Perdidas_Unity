@@ -77,8 +77,8 @@ public class MyGameController : MonoBehaviour
     public AudioClip SxfLand;
     public AudioClip SxfHit;
     public AudioClip SxfDie;
-    public AudioClip SxfFlechaDisparo;
-    public AudioClip SxfFlechaAcertou;
+    public AudioClip[] SxfFlechaDisparo;
+    public AudioClip[] SxfArco;
     public AudioClip SxfDash;
     [Space]
     [Header("Sfx Coletaveis")]
