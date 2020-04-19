@@ -11,7 +11,7 @@ Jogo simples onde um pequeno postor com seu arco e muita coragem vai resgatar su
     MIT
 
 # Guia de instalação
-    Baixe ou clone o repositorio e no Unity Hub selecione a pasta atraz do Add
+    Baixe ou clone o repositorio e no Unity Hub selecione a pasta através do botão Add
 
 ## lista de pacotes de recursos usados para o desenvolvimento
 
@@ -73,7 +73,7 @@ Forom usado alguns recursos dos seguintes sites, todos com licenças free ou sim
 
 [unity ripple](http://blog.onebyonedesign.com/unity/unity-ripple-or-shock-wave-effect/comment-page-1) Copyright (c) 2017 Devon O. Wolfgang
 
-##### Caso esqueci de citar algum outro recurso peço que entre em contato comigo atrás do GitHub
+##### Caso esqueci de citar algum outro recurso peço que entre em contato comigo através do GitHub
 ##### Alguns desenhos são de minha autoria 
 
 [Code](https://github.com/AmauriOliveira/Ovelhas_Perdidas_Unity)
