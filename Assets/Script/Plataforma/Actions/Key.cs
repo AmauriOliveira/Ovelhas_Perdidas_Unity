@@ -18,11 +18,24 @@ public class Key : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            _myGameController.PlaySfx(_myGameController.SxfKey, 1);
-            _myGameController.temChave = true;
-            particulasEfeitos.Play(true);
-            _myGameController.fasePontos += pontos;
-            Destroy(gameObject, 0.2f);
+            if (!_myGameController.temChave)
+            {
+                _myGameController.PlaySfx(_myGameController.SxfKey, 1);
+                _myGameController.temChave = true;
+                particulasEfeitos.Play(true);
+                _myGameController.fasePontos += pontos;
+                _myGameController.FeedBack("Você Encontrou uma chave");
+                Destroy(gameObject, 0.2f);
+            }
+            else
+            {
+                _myGameController.PlaySfx(_myGameController.SxfKey, 1);
+                particulasEfeitos.Play(true);
+                _myGameController.fasePontos += (pontos + 200);//200 bonus por ter achado outras chaves
+                _myGameController.FeedBack("Você Encontrou outra chave");
+                Destroy(gameObject, 0.2f);
+            }
+
         }
     }
 }

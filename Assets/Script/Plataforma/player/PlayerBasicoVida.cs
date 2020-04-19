@@ -12,16 +12,18 @@ public class PlayerBasicoVida : MonoBehaviour
     private RipplePostProcessor camRippleEffect;
     private MeshRenderer meshRenderer;
     private IEnumerator coroutine;
+    private MyGameController _myGameController;
+    
     void Start()
     {
         camRippleEffect = Camera.main.GetComponent<RipplePostProcessor>();
         meshRenderer = GetComponent<MeshRenderer>();
         maxHP = hp;
         playerMaterial.color = new Color(1f, 1f, 1f, 1f);
+        _myGameController = FindObjectOfType(typeof(MyGameController)) as MyGameController;
     }
     IEnumerator CronometroImunidade()
     {
-
         this.gameObject.layer = LayerMask.NameToLayer("Imunidade");
         camRippleEffect.RippleEfecct();
         imunidade = true;
@@ -51,6 +53,7 @@ public class PlayerBasicoVida : MonoBehaviour
     }
     IEnumerator removeHP(int dano)
     {
+        _myGameController.PlaySfx(_myGameController.SxfHit, 0.8f);
         for (int i = dano; i > 0; i--)
         {
             yield return new WaitForSeconds(0.05f);

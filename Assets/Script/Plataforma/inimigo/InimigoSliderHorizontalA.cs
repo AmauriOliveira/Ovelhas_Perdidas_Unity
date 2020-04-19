@@ -12,7 +12,6 @@ public class InimigoSliderHorizontalA : MonoBehaviour
     private bool contador = false;
     private InimigoBasicoVida inimigoBasicoVida;
     private MyGameController _myGameController;
-    public AudioClip SxfEnemyHit;////////////IMPLEMENTAR
     void Start()
     {
         enemyAnimator = GetComponent<Animator>();

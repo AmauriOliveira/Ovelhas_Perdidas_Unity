@@ -52,11 +52,13 @@ public class Arrows : MonoBehaviour
 
             Destroy(gameObject);
             other.gameObject.GetComponent<InimigoBasicoVida>().hp -= dano;
+            other.gameObject.GetComponent<InimigoBasicoVida>().SfxHit();
             other.gameObject.GetComponent<InimigoBasicoVida>().StartCoroutine("CronometroImunidade");
 
         }
         else if (other.gameObject.tag == "quebra")
         {
+            other.gameObject.GetComponent<Quebrou>().SfxHit();
             Destroy(gameObject);
             Destroy(other.gameObject);
         }

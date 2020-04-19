@@ -72,7 +72,7 @@ public class MyGameController : MonoBehaviour
     public AudioClip SfxFalha;
     public AudioClip SfxMenu;
     public AudioClip SfxAlert;
-    public AudioSource SfxClick;
+    public AudioClip SfxClick;
     public AudioClip SxfVitoria;
     public AudioClip SfxNewRecord;
     [Space]
@@ -96,6 +96,7 @@ public class MyGameController : MonoBehaviour
     [Header("Sfx Enemy")]
     public AudioClip SxfBatDie;
     public AudioClip SxfSlimeDie;
+    public AudioClip SfxQuebrou;
     [Header("Sfx Ovelha")]
     public AudioClip[] SxfOvelhaSad;
     public AudioClip[] SxfOvelhaHappy;
@@ -238,6 +239,7 @@ public class MyGameController : MonoBehaviour
     {
         return isPaused;
     }
+    
     #endregion
     //////////////////
     #region Corotines

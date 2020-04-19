@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimacaoControlada : MonoBehaviour
+public class AnimacaoControladaButton: MonoBehaviour
 {
     // Start is called before the first frame update
-    public Animator ani;
+    private Animator ani;
     public TurnButton button;
     public AudioClip sfx;
     public float volume;
     private bool estaVisivel = false;
-    public AudioSource sfxSource;
+    private AudioSource sfxSource;
     private void OnBecameVisible()
     {
         estaVisivel = true;
@@ -19,11 +19,17 @@ public class AnimacaoControlada : MonoBehaviour
     {
         estaVisivel = false;
     }
+
+    void Start()
+    {
+        ani = gameObject.GetComponent<Animator>();
+        sfxSource = gameObject.GetComponent<AudioSource>();
+    }
     void Update()
     {
         if (button.estaLigado)
         {
-            ani.SetBool("on", true);
+            ani.SetBool("Status", true);
             if (estaVisivel)
             {
                 sfxSource.PlayOneShot(sfx, volume);
@@ -32,7 +38,7 @@ public class AnimacaoControlada : MonoBehaviour
         }
         else
         {
-            ani.SetBool("off", false);
+            ani.SetBool("Status", false);
         }
     }
 }

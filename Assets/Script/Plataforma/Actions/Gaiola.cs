@@ -39,21 +39,25 @@ public class Gaiola : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (_myGameController.temChave && _myGameController.temGaiola)
+            if (_myGameController.temChave)
             {
-                if (other.gameObject.GetComponent<JogadorControleA>().EstaNoChao())
+                if (_myGameController.temGaiola)
                 {
-                    _myGameController.temGaiola = false;
-                    particulasEfeitos.Play(true);
-                    Destroy(gameObject, 0.5f);
-                    _myGameController.fasePontos += pontos;
-                    _myGameController.StartCoroutine("FeedBack", "Vá até a ovelha.");
-                }
-                else
-                {
-                    _myGameController.StartCoroutine("FeedBack", "Não pode estar no ar.");
-                }
+                    if (other.gameObject.GetComponent<JogadorControleA>().EstaNoChao())
+                    {
+                        _myGameController.temGaiola = false;
+                        particulasEfeitos.Play(true);
+                        _myGameController.fasePontos += pontos;
+                        _myGameController.StartCoroutine("FeedBack", "Vá até a ovelha.");
+                        _myGameController.PlaySfx(_myGameController.SfxQuebrou, 0.8f);
 
+                        Destroy(gameObject, 0.5f);
+                    }
+                    else
+                    {
+                        _myGameController.StartCoroutine("FeedBack", "Não pode estar no ar.");
+                    }//vazio
+                }
             }
             else
             {

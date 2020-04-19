@@ -11,13 +11,20 @@ public class InimigoBasicoVida : MonoBehaviour
     private RipplePostProcessor camRippleEffect;
     private SpriteRenderer spriteRenderer;
     public int pontos = 400;
+    private MyGameController _myGameController;
+    public AudioClip SxfEnemyHit;
 
     void Start()
     {
         particulasEfeitos.Stop(true);
         spriteRenderer = GetComponent<SpriteRenderer>();
         camRippleEffect = Camera.main.GetComponent<RipplePostProcessor>();
+        _myGameController = FindObjectOfType(typeof(MyGameController)) as MyGameController;
 
+    }
+    public void SfxHit()
+    {
+        _myGameController.PlaySfx(SxfEnemyHit, 0.5f);
     }
     IEnumerator CronometroImunidade()
     {

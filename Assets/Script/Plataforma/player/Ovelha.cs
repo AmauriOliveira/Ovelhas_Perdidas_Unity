@@ -5,6 +5,7 @@ using DragonBones;
 
 public class Ovelha : MonoBehaviour
 {
+    public ParticleSystem particulasEfeitos;
     public bool EstaEspelhado = true;//referencia ao lado que ele começa olhando//
     private Rigidbody2D ovelhaRB2D;//nem precisa colocar nada
     public float velocidade = 2.5f;//velocidade
@@ -56,6 +57,7 @@ public class Ovelha : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !estaLivre && !_myGameController.temGaiola && !enfeite)
         {
+             particulasEfeitos.Play(true);
             _myGameController.StartCoroutine("OvelhaLivre");
         }
     }
