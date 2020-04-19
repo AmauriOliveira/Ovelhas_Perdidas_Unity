@@ -71,6 +71,8 @@ public class MyGameController : MonoBehaviour
     [Header("Sfx Game")]
     public AudioClip SfxFalha;
     public AudioClip SfxMenu;
+    public AudioClip SfxAlert;
+    public AudioSource SfxClick;
     public AudioClip SxfVitoria;
     public AudioClip SfxNewRecord;
     [Space]
