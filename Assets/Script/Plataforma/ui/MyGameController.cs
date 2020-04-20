@@ -16,6 +16,7 @@ public class MyGameController : MonoBehaviour
     private bool isPaused = false;
     public int pontuacaoRecord = 0;
     public bool temGaiola = true;
+    public bool isTutorial = false;
 
     [Space]
     [Header("UI")]
@@ -103,7 +104,8 @@ public class MyGameController : MonoBehaviour
     private void Awake()
     {
         // PlayerPrefs.DeleteAll();///temporario
-        if (!PlayerPrefs.HasKey("fase" + numeroFase))
+
+        if (!PlayerPrefs.HasKey("fase" + numeroFase) && !isTutorial)
         {
             PlayerPrefs.SetInt("fase" + numeroFase, 1);
             PlayerPrefs.SetInt("faseRecord" + numeroFase, 0);
@@ -121,6 +123,7 @@ public class MyGameController : MonoBehaviour
         tempoUiText.text = tempoFase.ToString();
         LoadFase();
         Time.timeScale = 1f;
+        Debug.Log("teste o pause msuica linha 239");
     }
 
     void Update()
@@ -173,32 +176,44 @@ public class MyGameController : MonoBehaviour
     /// <param name="venceu">Este bool endica se o player venceu ou não a fase.</param>
     public void MostrarPontos(bool venceu, string msg)
     {
-
         musicSource.Stop();
-        if (UICanvas.enabled)
+        if (!isTutorial)
         {
-            UICanvas.gameObject.SetActive(false);
-
-            if (venceu)
+            if (UICanvas.enabled)
             {
-                vitoriaCanvas.gameObject.SetActive(true);
-                StartCoroutine("PontuacaoEfeito");
+                UICanvas.gameObject.SetActive(false);
 
-                btnProximaV.interactable = false;
-                btnReseteV.interactable = false;
-                btnMenuV.interactable = false;
+                if (venceu)
+                {
+                    vitoriaCanvas.gameObject.SetActive(true);
+                    StartCoroutine("PontuacaoEfeito");
 
-                PlaySfx(SxfVitoria, 0.8f);
-            }
-            else
-            {
-                TxtFalha.text = msg;
-                falhaCanvas.gameObject.SetActive(true);
-                Time.timeScale = 0f;
+                    btnProximaV.interactable = false;
+                    btnReseteV.interactable = false;
+                    btnMenuV.interactable = false;
 
-                PlaySfx(SfxFalha, 0.4f);
+                    PlaySfx(SxfVitoria, 0.8f);
+                }
+                else
+                {
+                    TxtFalha.text = msg;
+                    falhaCanvas.gameObject.SetActive(true);
+                    Time.timeScale = 0f;
+
+                    PlaySfx(SfxFalha, 0.4f);
+                }
             }
         }
+        else
+        {
+            PlaySfx(SxfVitoria, 1);
+            Time.timeScale = 1f;
+            StartCoroutine("FeedBack", "Tour guiado, Completo.");
+            SceneManager.LoadScene("Principal");
+        }
+
+
+
     }
     public void SalveFase()
     {
@@ -215,7 +230,11 @@ public class MyGameController : MonoBehaviour
     }
     public void LoadFase()
     {
-        pontuacaoRecord = PlayerPrefs.GetInt("faseRecord" + numeroFase);
+        if (!isTutorial)
+        {
+            pontuacaoRecord = PlayerPrefs.GetInt("faseRecord" + numeroFase);
+        }
+
     }
     public void GamePause(bool status)
     {
@@ -224,6 +243,7 @@ public class MyGameController : MonoBehaviour
         if (status)
         {
             //musicSource.Pause();
+
 
             Time.timeScale = 0f;
         }
@@ -334,6 +354,12 @@ public class MyGameController : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Fase" + numeroFase);
     }
+    public void btnResetTutorial()
+    {
+        PlaySfx(SfxClick, 1);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Tutorial");
+    }
     public void btnMenuPrincipal()
     {
         PlaySfx(SfxClick, 1);
@@ -347,6 +373,5 @@ public class MyGameController : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Fase" + temp);
     }
-
     #endregion
 }

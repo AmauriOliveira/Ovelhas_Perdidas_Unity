@@ -23,7 +23,8 @@ public class Coin : MonoBehaviour
             particulasEfeitos.Play(true);
             _myGameController.fasePontos += pontos;
             _myGameController.PlaySfxArray(_myGameController.SxfCoin, 0.8f);
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject.GetComponent<Collider2D>());
+            Destroy(gameObject, 0.2f);
         }
 
     }

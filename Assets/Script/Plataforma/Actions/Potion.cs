@@ -35,7 +35,7 @@ public class Potion : MonoBehaviour
                         particulasEfeitos.Play(true);
                         other.gameObject.GetComponent<PlayerBasicoVida>().StartCoroutine("AddHP", valorEfeito);
                         Remove();
-                        _myGameController.PlaySfx(_myGameController.SxfHeal,.7f);
+                        _myGameController.PlaySfx(_myGameController.SxfHeal, .7f);
                     }
                     break;
 
@@ -45,7 +45,7 @@ public class Potion : MonoBehaviour
                         particulasEfeitos.Play(true);
                         other.gameObject.GetComponent<PlayerBasicoVida>().StartCoroutine("MAXHeal");
                         Remove();
-                        _myGameController.PlaySfx(_myGameController.SxfHeal,1);
+                        _myGameController.PlaySfx(_myGameController.SxfHeal, 1);
                     }
                     break;
 
@@ -55,7 +55,7 @@ public class Potion : MonoBehaviour
                         particulasEfeitos.Play(true);
                         other.gameObject.GetComponent<PlayerBasicoVida>().StartCoroutine("CronometroImunidadePotion", valorEfeito);
                         Remove();
-                        _myGameController.PlaySfx(_myGameController.SfxImunite,1);
+                        _myGameController.PlaySfx(_myGameController.SfxImunite, 1);
                     }
                     break;
                 case TiposPotion.POWERUP:
@@ -63,15 +63,16 @@ public class Potion : MonoBehaviour
                     particulasEfeitos.Play(true);
                     other.gameObject.GetComponent<JogadorControleA>().StartCoroutine("AumentarPlayer");
                     Remove();
-                    _myGameController.PlaySfx(_myGameController.SfxSize,1);
+                    _myGameController.PlaySfx(_myGameController.SfxSize, 1);
 
                     break;
                 case TiposPotion.DANOAREA:
 
                     particulasEfeitos.Play(true);
-                    Instantiate(danoArea, gameObject.transform.position, gameObject.transform.rotation);
+                    danoArea.gameObject.gameObject.SetActive(true);
+                    _myGameController.PlaySfx(_myGameController.SfxExplosion, 1);
+
                     Remove();
-                    _myGameController.PlaySfx(_myGameController.SfxExplosion,1);
 
                     break;
 
@@ -84,7 +85,8 @@ public class Potion : MonoBehaviour
     }
     private void Remove()
     {
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject.GetComponent<Collider2D>());
+        Destroy(gameObject, 0.5f);
         _myGameController.fasePontos += pontos;
     }
 }
