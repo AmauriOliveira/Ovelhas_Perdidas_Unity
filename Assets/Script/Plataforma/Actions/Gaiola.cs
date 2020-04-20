@@ -19,6 +19,7 @@ public class Gaiola : MonoBehaviour
     {
         if (!avisoDado)
         {
+            _myGameController.PlaySfx(_myGameController.SfxAlert, 0.8f);
             _myGameController.StartCoroutine("FeedBack", "Olhe a ovelha ali na jaula.");
             avisoDado = true;
 
@@ -55,12 +56,14 @@ public class Gaiola : MonoBehaviour
                     }
                     else
                     {
+                        _myGameController.PlaySfx(_myGameController.SfxAlert, 0.8f);
                         _myGameController.StartCoroutine("FeedBack", "Não pode estar no ar.");
                     }//vazio
                 }
             }
             else
             {
+                _myGameController.PlaySfx(_myGameController.SfxAlert, 0.8f);
                 _myGameController.StartCoroutine("FeedBack", "Precisa encontrar a chave.");
             }
         }

@@ -78,7 +78,6 @@ public class MyGameController : MonoBehaviour
     [Space]
     [Header("Sfx Player")]
     public AudioClip SxfJump;
-    public AudioClip SxfLand;
     public AudioClip SxfHit;
     public AudioClip SxfDie;
     public AudioClip[] SxfFlechaDisparo;
@@ -220,6 +219,7 @@ public class MyGameController : MonoBehaviour
     }
     public void GamePause(bool status)
     {
+        PlaySfx(SfxMenu, 1);
         isPaused = status;
         if (status)
         {
@@ -239,7 +239,7 @@ public class MyGameController : MonoBehaviour
     {
         return isPaused;
     }
-    
+
     #endregion
     //////////////////
     #region Corotines
@@ -315,28 +315,34 @@ public class MyGameController : MonoBehaviour
     {
         sfxSource.PlayOneShot(sfx[Random.Range(0, sfx.Length)], volume);
     }
+
     #endregion
     #region Buttons
     public void btnPause()
     {
+        PlaySfx(SfxClick, 1);
         GamePause(true);
     }
     public void btnResume()
     {
+        PlaySfx(SfxClick, 1);
         GamePause(false);
     }
     public void btnReset()
     {
+        PlaySfx(SfxClick, 1);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Fase" + numeroFase);
     }
     public void btnMenuPrincipal()
     {
+        PlaySfx(SfxClick, 1);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Principal");
     }
     public void btnProximaFase()
     {
+        PlaySfx(SfxClick, 1);
         int temp = numeroFase + 1;
         Time.timeScale = 1f;
         SceneManager.LoadScene("Fase" + temp);

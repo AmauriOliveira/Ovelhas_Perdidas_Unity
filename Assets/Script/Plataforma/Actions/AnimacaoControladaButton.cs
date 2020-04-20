@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimacaoControladaButton: MonoBehaviour
+public class AnimacaoControladaButton : MonoBehaviour
 {
     // Start is called before the first frame update
     private Animator ani;
+    public bool isInverso = false;
     public TurnButton button;
     public AudioClip sfx;
     public float volume;
@@ -27,9 +28,15 @@ public class AnimacaoControladaButton: MonoBehaviour
     }
     void Update()
     {
-        if (button.estaLigado)
+        bool temp = button.estaLigado;
+        if (isInverso)
+        {
+            temp = !temp;
+        }
+        if (temp)
         {
             ani.SetBool("Status", true);
+
             if (estaVisivel)
             {
                 sfxSource.PlayOneShot(sfx, volume);

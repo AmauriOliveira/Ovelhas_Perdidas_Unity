@@ -16,6 +16,7 @@ public class FeedBack : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !avisado)
         {
+            _myGameController.PlaySfx(_myGameController.SfxAlert, 0.8f); 
             avisado = true;
             _myGameController.StartCoroutine("FeedBack", msgFeedback);
             StartCoroutine("NovoAviso");
