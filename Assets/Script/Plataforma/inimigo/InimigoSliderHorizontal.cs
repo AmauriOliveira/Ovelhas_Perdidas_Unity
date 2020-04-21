@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class InimigoSliderHorizontalA : MonoBehaviour
+public class InimigoSliderHorizontal : MonoBehaviour
 {
     private Animator enemyAnimator;
     private SliderJoint2D sliderJoint2;
@@ -58,6 +58,7 @@ public class InimigoSliderHorizontalA : MonoBehaviour
         {
             if (!contador)
             {
+                inimigoBasicoVida.Drop();
                 _myGameController.PlaySfx(_myGameController.SxfBatDie, 1);
                 contador = true;
                 enemyAnimator.SetBool("die", true);

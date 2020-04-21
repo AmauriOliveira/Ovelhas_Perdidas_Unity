@@ -63,7 +63,7 @@ public class Potion : MonoBehaviour
                 case TiposPotion.POWERUP:
 
                     particulasEfeitos.Play(true);
-                    other.gameObject.GetComponent<JogadorControleA>().StartCoroutine("AumentarPlayer");
+                    other.gameObject.GetComponent<JogadorControle>().StartCoroutine("AumentarPlayer");
                     Remove();
                     _myGameController.PlaySfx(_myGameController.SfxSize, 1);
 

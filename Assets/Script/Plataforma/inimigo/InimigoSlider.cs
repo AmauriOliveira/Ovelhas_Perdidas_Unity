@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InimigoSliderA : MonoBehaviour
+public class InimigoSlider : MonoBehaviour
 {
     
     public SliderJoint2D sliderJoint2;

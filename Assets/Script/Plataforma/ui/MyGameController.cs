@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MyGameController : MonoBehaviour
 {
+    [Header("Fase")]
     public int fasePontos;
     public int coin;
     public int tempoFase = 0;

@@ -44,7 +44,7 @@ public class Gaiola : MonoBehaviour
             {
                 if (_myGameController.temGaiola)
                 {
-                    if (other.gameObject.GetComponent<JogadorControleA>().EstaNoChao())
+                    if (other.gameObject.GetComponent<JogadorControle>().EstaNoChao())
                     {
                         _myGameController.temGaiola = false;
                         particulasEfeitos.Play(true);

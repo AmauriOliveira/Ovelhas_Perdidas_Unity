@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DragonBones;
 
-public class JogadorControleA : MonoBehaviour
+public class JogadorControle : MonoBehaviour
 {
     #region Vars
 
@@ -30,7 +30,7 @@ public class JogadorControleA : MonoBehaviour
 
     [Space]
     [Header("Dash")]
-    public bool dash = false;
+    private bool dash = false;
     public float dashSpeed = 20;
     public ParticleSystem particulasDashSolo;
     public ParticleSystemRenderer particulaRenderSolo;

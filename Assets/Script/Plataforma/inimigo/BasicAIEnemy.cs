@@ -46,13 +46,13 @@ public class BasicAIEnemy : MonoBehaviour
                     transform.Translate(new Vector2(enemyVelocidade * Time.deltaTime, 0));
 
                 }
-
             }
         }
         else
         {
             if (!contador)
             {
+                inimigoBasicoVida.Drop();
                 contador = true;
                 enemyAnimator.SetBool("die", true);
                 Destroy(gameObject.GetComponent<Rigidbody2D>());
@@ -73,5 +73,4 @@ public class BasicAIEnemy : MonoBehaviour
             StartCoroutine("Voltar");
         }
     }
-
 }
