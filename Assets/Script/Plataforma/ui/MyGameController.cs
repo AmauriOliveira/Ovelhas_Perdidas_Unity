@@ -104,8 +104,6 @@ public class MyGameController : MonoBehaviour
 
     private void Awake()
     {
-        // PlayerPrefs.DeleteAll();///temporario
-
         if (!PlayerPrefs.HasKey("fase" + numeroFase) && !isTutorial)
         {
             PlayerPrefs.SetInt("fase" + numeroFase, 1);
