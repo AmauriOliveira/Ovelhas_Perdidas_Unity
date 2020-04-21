@@ -19,7 +19,6 @@ public class MenuPrincipal : MonoBehaviour
     [Header("Som")]
 
     public AudioSource sfxSource;
-    public AudioSource musicSource;
     public AudioClip SfxMenu;
     public AudioClip SfxAlert;
     public AudioClip SfxClick;
@@ -45,6 +44,7 @@ public class MenuPrincipal : MonoBehaviour
         canvasPrincipal.enabled = false;
         canvasSobre.enabled = true;
         cam.transform.position = new Vector3(sobrePosX, cam.transform.position.y, cam.transform.position.z);
+
     }
     public void Sair()
     {
@@ -68,5 +68,10 @@ public class MenuPrincipal : MonoBehaviour
     {
         sfxSource.PlayOneShot(SfxClick, 1);
         SceneManager.LoadScene("Tutorial");
+    }
+    public void VerCreditos()
+    {
+        sfxSource.PlayOneShot(SfxClick, 1);
+        SceneManager.LoadScene("Fase3");
     }
 }
