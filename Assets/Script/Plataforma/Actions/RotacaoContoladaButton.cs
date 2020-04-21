@@ -6,7 +6,7 @@ public class RotacaoContoladaButton : MonoBehaviour
 {
     public float velocidade;
     public TurnButton button;
-    public AudioSource sfxSource;
+    private AudioSource sfxSource;
     private bool estaVisivel = false;
     public bool emiteSom = false;
 

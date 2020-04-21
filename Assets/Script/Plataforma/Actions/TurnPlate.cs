@@ -8,9 +8,11 @@ public class TurnPlate : MonoBehaviour
     public bool estaLigado;
     public AudioClip sfxOn;
     public AudioClip sfxOff;
+    private AudioSource sfxSource;
 
     void Start()
     {
+        sfxSource = gameObject.GetComponent<AudioSource>();
         plateAnimator = GetComponent<Animator>();
     }
     void OnCollisionEnter2D(Collision2D other)
@@ -19,6 +21,7 @@ public class TurnPlate : MonoBehaviour
         {
             estaLigado = true;
             plateAnimator.SetBool("on", true);
+            sfxSource.PlayOneShot(sfxOn,1);
         }
 
     }
@@ -28,6 +31,7 @@ public class TurnPlate : MonoBehaviour
         {
             estaLigado = false;
             plateAnimator.SetBool("on", false);
+             sfxSource.PlayOneShot(sfxOff,1);
         }
 
     }

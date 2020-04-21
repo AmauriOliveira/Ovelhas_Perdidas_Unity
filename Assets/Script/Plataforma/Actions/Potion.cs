@@ -18,10 +18,12 @@ public class Potion : MonoBehaviour
     public int pontos = 250;
     public TiposPotion potion;
     public GameObject danoArea;
+    private RipplePostProcessor camRippleEffect;
     void Start()
     {
         particulasEfeitos.Stop(true);
         _myGameController = FindObjectOfType(typeof(MyGameController)) as MyGameController;
+        camRippleEffect = Camera.main.GetComponent<RipplePostProcessor>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -71,6 +73,7 @@ public class Potion : MonoBehaviour
                     particulasEfeitos.Play(true);
                     danoArea.gameObject.gameObject.SetActive(true);
                     _myGameController.PlaySfx(_myGameController.SfxExplosion, 1);
+                    camRippleEffect.RippleEfecct();
 
                     Remove();
 

@@ -6,10 +6,20 @@ public class RotacaoContoladaPlate : MonoBehaviour
 {
     public float velocidade;
     public TurnPlate plate;
-    public AudioClip sfx;
-    public float volume;
-    public AudioSource sfxSource;
+    private AudioSource sfxSource;
     private bool estaVisivel = false;
+    public bool isInverso = false;
+    public bool emiteSom = false;
+    public float limite;
+
+    void Start()
+    {
+        if (emiteSom)
+        {
+            sfxSource = gameObject.GetComponent<AudioSource>();
+            sfxSource.Stop();
+        }
+    }
     private void OnBecameVisible()
     {
         estaVisivel = true;
@@ -20,10 +30,30 @@ public class RotacaoContoladaPlate : MonoBehaviour
     }
     void Update()
     {
-        if (plate.estaLigado && estaVisivel)
+        bool temp = plate.estaLigado;
+        if (isInverso)
         {
-            transform.Rotate(new Vector3(0, 0, velocidade * Time.deltaTime));
-            sfxSource.PlayOneShot(sfx, volume);
+            temp = !temp;
+        }
+        if (temp)
+        {
+            if (velocidade > 0 && limite != 0 && transform.localEulerAngles.z <= limite)
+            {
+                transform.Rotate(new Vector3(0, 0, velocidade * Time.deltaTime));
+            }
+            else if (velocidade < 0 && limite != 0 && transform.localEulerAngles.z >= limite)
+            {
+                transform.Rotate(new Vector3(0, 0, velocidade * Time.deltaTime));
+            }
+            else if (velocidade != 0 && limite == 0)
+            {
+                transform.Rotate(new Vector3(0, 0, velocidade * Time.deltaTime));
+            }
+
+            if (estaVisivel && emiteSom)
+            {
+                sfxSource.Play();
+            }
         }
     }
 }

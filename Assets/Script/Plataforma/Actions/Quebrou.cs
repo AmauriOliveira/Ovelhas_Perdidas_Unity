@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Quebrou : MonoBehaviour
 {
-    private bool visible = false;
     private MyGameController _myGameController;
     private RipplePostProcessor camRippleEffect;
 
@@ -18,15 +17,8 @@ public class Quebrou : MonoBehaviour
     // Update is called once per frame
     public void SfxHit()
     {
+        
         camRippleEffect.RippleEfecct();
         _myGameController.PlaySfx(_myGameController.SfxQuebrou, 0.6f);
-    }
-    private void OnBecameVisible()
-    {
-        visible = true;
-    }
-    private void OnBecameInvisible()
-    {
-        visible = false;
     }
 }

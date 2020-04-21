@@ -44,8 +44,6 @@ Forom usado alguns recursos dos seguintes sites, todos com licenças free ou sim
 
 [Pixel Adventure 2](https://assetstore.unity.com/packages/2d/characters/pixel-adventure-2-155418)
 
-[Sound FX - Retro Pack](https://assetstore.unity.com/packages/audio/sound-fx/sound-fx-retro-pack-121743)
-
 [2D Death Traps - Free](https://assetstore.unity.com/packages/2d/environments/2d-death-traps-free-20706)
 
 [Free Platform Game Assets](https://assetstore.unity.com/packages/2d/environments/free-platform-game-assets-85838)

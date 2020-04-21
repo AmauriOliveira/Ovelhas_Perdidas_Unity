@@ -123,7 +123,7 @@ public class MyGameController : MonoBehaviour
         tempoUiText.text = tempoFase.ToString();
         LoadFase();
         Time.timeScale = 1f;
-        Debug.Log("teste o pause msuica linha 239");
+
     }
 
     void Update()
@@ -209,11 +209,8 @@ public class MyGameController : MonoBehaviour
             PlaySfx(SxfVitoria, 1);
             Time.timeScale = 1f;
             StartCoroutine("FeedBack", "Tour guiado, Completo.");
-            SceneManager.LoadScene("Principal");
+            StartCoroutine("TutorialCompleto");
         }
-
-
-
     }
     public void SalveFase()
     {
@@ -242,14 +239,12 @@ public class MyGameController : MonoBehaviour
         isPaused = status;
         if (status)
         {
-            //musicSource.Pause();
-
-
+            musicSource.Pause();
             Time.timeScale = 0f;
         }
         else
         {
-            //musicSource.UnPause();
+            musicSource.UnPause();
             Time.timeScale = 1f;
         }
         pauseCanvas.gameObject.SetActive(status);
@@ -276,6 +271,11 @@ public class MyGameController : MonoBehaviour
         ovelhaLivre = true;
         yield return new WaitForSeconds(tempoComemorar);
         MostrarPontos(true, null);
+    }
+    private IEnumerator TutorialCompleto()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Principal");
     }
     public IEnumerator PlayerMorto()
     {
