@@ -4,6 +4,9 @@
 
 Jogo simples onde um pequeno postor com seu arco e muita coragem vai resgatar suas ovelhas que estão perdidas pelo mundo, algumas se encontra dentro de grades e outras correndo perigo.
 
+## Download
+    [Download para Windows](https://drive.google.com/file/d/1THLA4oFv69s4lAkox5x3Ne85rc0JiEmM/view?usp=sharing)
+
 ## Pré-requisitos
     * Unity 2019.3.9f1
 
