@@ -2,7 +2,7 @@
 
 ### Pequeno jogo feito na Unity 2019.3.9f1 usando CSharp
 
-Jogo simples onde um pequeno postor com seu arco e muita coragem vai resgatar suas ovelhas que estão perdidas pelo mundo, algumas se encontra dentro de grades e outras correndo perigo.
+Jogo simples onde um pequeno pastor com seu arco e muita coragem vai resgatar suas ovelhas que estão perdidas pelo mundo, algumas se encontra dentro de grades e outras correndo perigo.
 
 ## HTML5 para PC
 [HTML5](https://amaurioliveira.github.io/ovelha/)
