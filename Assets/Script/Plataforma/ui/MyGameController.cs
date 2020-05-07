@@ -110,7 +110,6 @@ public class MyGameController : MonoBehaviour
             PlayerPrefs.SetInt("faseRecord" + numeroFase, 0);
         }
     }
-
     void Start()
 
     {
@@ -138,6 +137,12 @@ public class MyGameController : MonoBehaviour
         }
         moedaUiText.text = coin.ToString();
         pontosUiText.text = fasePontos.ToString();
+        
+        if (Input.GetKey(KeyCode.Escape) && !isPaused)
+        {
+            PlaySfx(SfxClick, 1);
+            GamePause(true);
+        }
     }
     void LateUpdate()
     {

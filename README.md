@@ -19,7 +19,10 @@ Jogo simples onde um pequeno pastor com seu arco e muita coragem vai resgatar su
 # Guia de instalação
     Baixe ou clone o repositorio e no Unity Hub selecione a pasta através do botão Add
 
-## lista de pacotes de recursos usados para o desenvolvimento
+# Video 
+[Demonstração](https://youtu.be/uyHfHmD6U4M)
+
+## Lista de pacotes de recursos usados para o desenvolvimento
 
 Forom usado alguns recursos dos seguintes sites, todos com licenças free ou similares
 
