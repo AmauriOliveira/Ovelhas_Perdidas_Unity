@@ -1,32 +1,32 @@
-# Ovelhas Perdidas
+# 🐏Ovelhas Perdidas
 
-### Pequeno jogo feito na Unity 2019.3.9f1 usando CSharp
+### 🐑Pequeno jogo feito na Unity 2019.3.9f1 usando CSharp
 
 Jogo simples onde um pequeno pastor com seu arco e muita coragem vai resgatar suas ovelhas que estão perdidas pelo mundo, algumas se encontra dentro de grades e outras correndo perigo.
 
-## HTML5 para PC
+## 🎮HTML5 para PC
 [HTML5](https://amaurioliveira.github.io/ovelha/)
 
-## Download
+## 💾Download
 [Download para Windows](https://drive.google.com/file/d/1THLA4oFv69s4lAkox5x3Ne85rc0JiEmM/view?usp=sharing)
 
-## Pré-requisitos
+## 💻Pré-requisitos
     * Unity 2019.3.9f1
 
-## Licença
+## 📃Licença
     MIT
 
-# Guia de instalação
+# 📜Guia de instalação
     Baixe ou clone o repositorio e no Unity Hub selecione a pasta através do botão Add
 
-# Video 
+# 📺Video 
 [Demonstração](https://youtu.be/uyHfHmD6U4M)
 
-## Lista de pacotes de recursos usados para o desenvolvimento
+## 📦Lista de pacotes de recursos usados para o desenvolvimento
 
 Forom usado alguns recursos dos seguintes sites, todos com licenças free ou similares
 
-### Áudios 
+### 🔉Áudios 
 
 [rpg-sound-pack](https://opengameart.org/content/rpg-sound-pack)
 
@@ -39,7 +39,7 @@ Forom usado alguns recursos dos seguintes sites, todos com licenças free ou sim
     - Fast Whoosh By
     - Alarm Beep
 
-### Asset Store Unity
+### 📁Asset Store Unity
 
 [8-Bit Sfx, Little Robot Sound Factory](https://assetstore.unity.com/packages/audio/sound-fx/8-bit-sfx-32831)
 
@@ -59,18 +59,18 @@ Forom usado alguns recursos dos seguintes sites, todos com licenças free ou sim
 
 [2D Sprites pack](https://assetstore.unity.com/packages/essentials/asset-packs/2d-sprites-pack-73728)
 
-### Artes
+### :framed_picture:Artes
 [side-scrolling fantasy themed game assets](https://opengameart.org/content/side-scrolling-fantasy-themed-game-assets)
 
 [fantasy potion set](https://opengameart.org/content/fantasy-potion-set)
 
 [industrial traps 2d sidescroller](https://opengameart.org/content/industrial-traps-2d-sidescroller)
 
-### Fonte
+### ✏️Fonte
 
 [planet benson](https://www.1001freefonts.com/planet-benson.font)
 
-### Outros
+### 🎓Outros
 ##### DragonBones for Unity package
 
 [DragonBones](https://github.com/DragonBones/DragonBonesCSharp)
